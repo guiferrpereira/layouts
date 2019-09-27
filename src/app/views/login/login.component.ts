@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef} from '@angular/core';
 
 @Component({
   selector: 'app-login',
@@ -7,9 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _el: ElementRef) { }
 
   ngOnInit() {
+  }
+
+  search(event) {
+  	console.log('trying to find me!', event.target.parentElement.querySelectorAll('div.findme'));
   }
 
 }
