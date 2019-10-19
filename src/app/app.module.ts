@@ -7,33 +7,19 @@ import {LoginModule} from './views/login/login.module';
 import {RegistrationModule} from './views/registration/registration.module';
 import {LayoutModule} from './layouts/layout.module';
 import {UsersModule} from './views/users/users.module';
-
-import {DashboardComponent} from './views/dashboard/dashboard.component'
 import {Layouts} from './app.component'
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/dashboard',
+    redirectTo: '/registration',
     pathMatch: 'full'
-  },
-  {
-    path: 'dashboard',
-    component: DashboardComponent,
-    data: { layout: Layouts.Main },
-    children: [
-      {
-        path: 'campaigns',
-        loadChildren: () => import('./views/campaigns/campaign-manager.module').then(module => module.CampaignManagerModule)
-      }
-  	]
-  },
+  }
 ];
 
 @NgModule({
   declarations: [
-    AppComponent,
-    DashboardComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
